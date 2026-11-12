@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/v1/user', userRoutes);
+app.use('/v1/category', categoryRoutes);
 
 // JSON malformado e outros erros inesperados
 app.use((err, req, res, next) => {
