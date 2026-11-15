@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./docs/swagger');
 const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
@@ -18,6 +20,9 @@ app.use('/media', express.static(path.join(UPLOAD_DIR, 'media')));
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
+
+// documentação interativa: http://localhost:3000/docs
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/v1/user', userRoutes);
 app.use('/v1/category', categoryRoutes);
