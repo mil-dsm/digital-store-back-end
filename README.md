@@ -23,8 +23,8 @@ Projeto final do módulo de Back End.
 **1. Clone o repositório e entre na pasta**
 
 ```bash
-git clone <URL-DO-REPOSITORIO>
-cd <NOME-DA-PASTA>
+git clone https://github.com/mil-dsm/digital-store-back-end.git
+cd digital-store-back-end
 ```
 
 **2. Instale as dependências**
