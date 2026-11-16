@@ -61,6 +61,7 @@ Abra o `.env` e preencha os valores:
 | `DB_HOST` | Endereço do MySQL | `localhost` |
 | `DB_PORT` | Porta do MySQL | `3306` |
 | `DB_NAME` | Nome do banco | `digital_store` |
+| `DB_NAME_TEST` | Banco usado só nos testes | `digital_store_test` |
 | `DB_USER` | Usuário do MySQL | `root` |
 | `DB_PASSWORD` | Senha do MySQL | `sua_senha` |
 | `JWT_SECRET` | Frase secreta usada para assinar os tokens | uma frase longa e aleatória |
@@ -83,6 +84,23 @@ npm start       # execução normal
 No terminal devem aparecer as mensagens `Conectado ao MySQL` e `API rodando na porta 3000`.
 
 Para conferir, abra `http://localhost:3000/health` no navegador. A resposta esperada é `{"status":"ok"}`.
+
+## Testes
+
+Os testes (Jest + Supertest) cobrem usuários, categorias e produtos e rodam em um banco separado, para não apagar os dados de desenvolvimento.
+
+1. Crie o banco de testes (uma vez só):
+
+```sql
+CREATE DATABASE digital_store_test CHARACTER SET utf8mb4;
+```
+
+2. Confira se o `.env` tem a linha `DB_NAME_TEST=digital_store_test`.
+3. Rode:
+
+```bash
+npm test
+```
 
 ## Documentação da API (Swagger)
 
